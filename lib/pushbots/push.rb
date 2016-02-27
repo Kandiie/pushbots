@@ -10,7 +10,7 @@ module Pushbots
       @message = message
     end
 
-    def send
+    def deliver
       HTTP.headers(create_header).post(Config.config.pushbots_url,
                                        json: create_body)
     end

@@ -29,6 +29,15 @@ Pushbots.configure do |config|
   config.application_secret = 'Application Secret'
 end
 ```
+#### Push a notification to a token
+```ruby
+# platform is :ios or :android
+token = '900f9e35cc09ab9f3d99f0b244e23f160e0264f1aaf785549efeb6835a586710'
+platform = :ios
+message = 'Hello World!!!'
+push = PushBot::Push.new(token, platform, message)
+push.deliver
+```
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
