@@ -1,5 +1,8 @@
-require "pushbots/version"
+require 'pushbots/version'
+require 'pushbots/config'
 
 module Pushbots
-  # Your code goes here...
+  def self.configure(&block)
+    Config.configure(&block)
+  end
 end
