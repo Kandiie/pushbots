@@ -3,7 +3,7 @@ module Pushbots
   class One < Push
     attr_accessor :token, :sound, :badge, :payload, :json
 
-    def initialize(platform, message, token, sound, options = {})
+    def initialize(platform, token, message, sound, options = {})
       super(platform, message)
       self.token = token
       self.sound = sound
