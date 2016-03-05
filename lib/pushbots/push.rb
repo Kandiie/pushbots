@@ -1,37 +1,29 @@
-require 'http'
-
 module Pushbots
   # Push class
+  # Holds shared data between single and batch push notifications
   class Push
-    attr_accessor :token, :platafform, :message
-    def initialize(token, platafform, message)
-      @token = token
-      @platafform = platafform
-      @message = message
+    attr_accessor :platform, :message, :status, :response
+    PLATFORM_TYPE = { ios: 0, android: 1 }.freeze
+    PLATFORM_TYPE_R = [:ios, :android].freeze
+
+    STATUS = { created: 'created', delivered: 'delivered',
+               failed: 'failed' }.freeze
+
+    def initialize(platform, message)
+      validates_platform(platform)
+      self.platform = PLATFORM_TYPE[platform]
+      self.message = message
+      self.status = STATUS[:created]
     end
 
-    def deliver
-      HTTP.headers(create_header).post(Config.config.pushbots_url,
-                                       json: create_body)
+    def platform
+      PLATFORM_TYPE_R[@platform.to_i]
     end
 
     private
 
-    def create_header
-      {
-        :'X-PushBots-AppID' => Config.config.application_id,
-        :'X-PushBots-Secret' => Config.config.application_secret,
-        :'Content-Type' => 'application/json'
-      }
-    end
-
-    def create_body
-      {
-        platform: '0',
-        token: @token,
-        msg: @message,
-        sound: 'sa'
-      }
+    def validates_platform(platform)
+      raise 'platform is not valid' if PLATFORM_TYPE[platform].nil?
     end
   end
 end
