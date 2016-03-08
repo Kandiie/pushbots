@@ -17,9 +17,9 @@ module Pushbots
 
     def header
       {
-        :'X-PushBots-AppID' => Config.config.application_id,
-        :'X-PushBots-Secret' => Config.config.application_secret,
-        :'Content-Type' => 'application/json'
+        'X-PushBots-AppID': Config.config.application_id,
+        'X-PushBots-Secret': Config.config.application_secret,
+        'Content-Type': 'application/json'
       }
     end
   end

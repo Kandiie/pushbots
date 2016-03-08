@@ -40,8 +40,8 @@ platform = :ios
 message = 'Hello World!!!'
 # Build up the notification
 # platform, message, token and sound (required parameters).
-# options (custom fields, optional parameter)
-push = PushBot::One.new(platform, message, token, sound, options)
+# options (custom fields) (optional parameter)
+push = PushBot::One.new(platform, token, message, sound, options)
 push.send # Delivers the notification
 ```
 ##### You can read Pushbots API response using:  
