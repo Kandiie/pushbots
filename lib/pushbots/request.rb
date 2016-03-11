@@ -3,15 +3,16 @@ require 'http'
 module Pushbots
   # Request class
   class Request
-    attr_accessor :body
+    attr_accessor :body, :base_url
 
-    def initialize(body)
+    def initialize(body, base_url)
       self.body = body
+      self.base_url = base_url
     end
 
     def send
-      response = HTTP.headers(header).post(Config.config.pushbots_url,
-                                           json: body)
+      url = "https://api.pushbots.com/push/#{base_url}"
+      response = HTTP.headers(header).post(url, json: body)
       Response.new(response)
     end
 
