@@ -1,19 +1,18 @@
 module Pushbots
   # Push class
   class One < Push
-    attr_accessor :token, :sound, :badge, :payload, :json
+    attr_accessor :token, :sound, :badge, :payload
 
     def initialize(platform, token, message, sound, options = {})
-      super(platform, message)
+      super(platform, message, :one)
       self.token = token
       self.sound = sound
       self.badge = options[:badge]
       self.payload = options[:payload]
-      self.json = options[:json]
     end
 
     def send
-      request = Request.new(body)
+      request = Request.new(body, :one)
       self.response = request.send
       self.status =
         response.failed? ? STATUS[:failed] : STATUS[:delivered]
@@ -27,7 +26,7 @@ module Pushbots
         sound: sound
       }
       data[:badge] if badge
-      data[:json] if json
+      data[:payload] if payload
       data
     end
   end
