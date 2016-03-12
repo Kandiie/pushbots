@@ -1,6 +1,9 @@
 # Pushbots
 
-A Ruby interface to the PushBots API made with love by Kandiie
+Ruby Wrapper for PushBots Rest API made with love by Kandiie
+
+PushBots is a Light SDK for mobile push notifications and now you can use
+this gem on your favorite Ruby on Rails Projects.
 
 ## Installation
 
@@ -33,7 +36,7 @@ end
 ```ruby
 # Device token
 token = '900f9e35cc09ab9f3d99f0b244e23f160e0264f1aaf785549efeb6835a586710'
-# platform is :ios or :android  
+# platform is :ios or :android
 # (Any other value will return a RuntimeError)
 platform = :ios
 # Notification message
@@ -61,7 +64,7 @@ push = PushBot::All.new(platforms, message, schedule, options = {})
 push.send # Delivers the notification
 ```
 
-##### You can read Pushbots API response using:  
+##### You can read Pushbots API response using:
 ```ruby
 # Your notification response
 push.response

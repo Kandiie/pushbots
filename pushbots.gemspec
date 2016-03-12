@@ -8,13 +8,13 @@ Gem::Specification.new do |spec|
   spec.version       = Pushbots::VERSION
   spec.authors       = ['Carlos Omana', 'Cesar Rodriguez']
   spec.email         = ['contact@kandiie.com']
-  spec.summary       = 'A Ruby interface to the PushBots API'
-  spec.description   = 'Send push notifications'
+  spec.summary       = 'Ruby Wrapper for PushBots Rest API.'
+  spec.description   = 'Ruby Wrapper for PushBots Rest API.'
   spec.homepage      = 'https://github.com/Kandiie/pushbots'
   spec.license       = 'MIT'
 
   if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
+    spec.metadata['allowed_push_host'] = "https://rubygems.org"
   else
     fail 'RubyGems 2 or newer, required to protect against public gem pushes.'
   end
