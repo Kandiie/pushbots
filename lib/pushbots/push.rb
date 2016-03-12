@@ -11,10 +11,13 @@ module Pushbots
 
     def initialize(platform, message, type)
       self.type = type
-      validates_platform(platform) if type == :one
-      validates_platforms(platform) if type == :all
-      self.platform = PLATFORM_TYPE[platform] if type == :one
-      self.platform = platform.map { |t| PLATFORM_TYPE[t] } if type == :all
+      if type == :one
+        validates_platform(platform)
+        self.platform = PLATFORM_TYPE[platform]
+      elsif type == :all
+        validates_platforms(platform)
+        self.platform = platform.map { |t| PLATFORM_TYPE[t] }
+      end
       self.message = message
       self.status = STATUS[:created]
     end
@@ -27,7 +30,7 @@ module Pushbots
     private
 
     def validates_platform(platform)
-      raise 'platform is not valid' if PLATFORM_TYPE[platform].nil?
+      fail 'platform is not valid' if PLATFORM_TYPE[platform].nil?
     end
 
     def validates_platforms(platforms)

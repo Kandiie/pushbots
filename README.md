@@ -33,7 +33,7 @@ end
 ```ruby
 # Device token
 token = '900f9e35cc09ab9f3d99f0b244e23f160e0264f1aaf785549efeb6835a586710'
-# platform should be :ios or :android  
+# platform is :ios or :android  
 # (Any other value will return a RuntimeError)
 platform = :ios
 # Notification message
@@ -44,8 +44,24 @@ message = 'Hello World!!!'
 push = PushBot::One.new(platform, token, message, sound, options)
 push.send # Delivers the notification
 ```
+
+#### Multiple device notification
+```ruby
+# platform is an array of valid plataforms (ios or android)
+# (Any other value will return a RuntimeError)
+platforms = [:ios, :android]
+# Notification message
+message = 'Hello World!!!'
+# Notification schedule (Delivery time)
+schedule = DateTime.now
+# Build up the notification
+# platform, message, schedule (required parameters).
+# options (custom fields) (optional parameter)
+push = PushBot::All.new(platforms, message, schedule, options = {})
+push.send # Delivers the notification
+```
+
 ##### You can read Pushbots API response using:  
-Read more about HTTP codes [here](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
 ```ruby
 # Your notification response
 push.response
@@ -57,6 +73,7 @@ push.response.message
 push.response.to_s
 ```
 
+Read more about HTTP codes [here](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/Kandiie/pushbots. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
