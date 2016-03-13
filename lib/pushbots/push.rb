@@ -30,7 +30,7 @@ module Pushbots
     private
 
     def validates_platform(platform)
-      fail 'platform is not valid' if PLATFORM_TYPE[platform].nil?
+      raise 'platform is not valid' if PLATFORM_TYPE[platform].nil?
     end
 
     def validates_platforms(platforms)

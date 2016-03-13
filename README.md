@@ -44,7 +44,7 @@ message = 'Hello World!!!'
 # Build up the notification
 # platform, message, token and sound (required parameters).
 # options (custom fields) (optional parameter)
-push = PushBot::One.new(platform, token, message, sound, options)
+push = PushBots::One.new(platform, token, message, sound, options)
 push.send # Delivers the notification
 ```
 
@@ -60,7 +60,7 @@ schedule = DateTime.now
 # Build up the notification
 # platform, message, schedule (required parameters).
 # options (custom fields) (optional parameter)
-push = PushBot::All.new(platforms, message, schedule, options = {})
+push = PushBots::All.new(platforms, message, schedule, options = {})
 push.send # Delivers the notification
 ```
 

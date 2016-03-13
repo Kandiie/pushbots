@@ -14,9 +14,9 @@ Gem::Specification.new do |spec|
   spec.license       = 'MIT'
 
   if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "https://rubygems.org"
+    spec.metadata['allowed_push_host'] = 'https://rubygems.org'
   else
-    fail 'RubyGems 2 or newer, required to protect against public gem pushes.'
+    raise 'RubyGems 2 or newer, required to protect against public gem pushes.'
   end
 
   spec.files         = `git ls-files -z`.split("\x0")
