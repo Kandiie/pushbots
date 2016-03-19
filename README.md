@@ -5,6 +5,22 @@ Ruby Wrapper for PushBots Rest API made with love by Kandiie
 PushBots is a Light SDK for mobile push notifications and now you can use
 this gem on your favorite Ruby on Rails Projects.
 
+## Table of Contents
+- [Installation](#installation)
+- [Configuration](#configuration)
+
+- [How to use](#how-to-use)
+  - [Device management](#device-management)
+    - [Register a device](#register-a-device)
+    - [Delete a device](#delete-a-device)
+    - [Device information](#device-information)
+
+  - [Notifications](#notifications)
+    - [Single device notification](#single-device-notification)
+    - [Multiple device notifications](#multiple-device-notification)
+    - [Read pushbots response](#read-pushbots-response)
+
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -21,9 +37,7 @@ Or install it yourself as:
 
     $ gem install pushbots
 
-
-## How to use:
-#### Configuration
+## Configuration
 ```ruby
 # config/initializers/pushbots.rb
 
@@ -32,6 +46,43 @@ Pushbots.configure do |config|
   config.application_secret = 'Application Secret'
 end
 ```
+
+# How to use:
+## Device management
+#### Register a device
+```ruby
+# token and platform are required to add a device
+device = Pushbots::Device.new(token, platform)
+# register the device to pushbots returns true/false
+# an attempt to register a device
+# that has been already registered returns false
+device.register
+```
+
+#### Delete a device
+```ruby
+# token and platform are required to delete a device
+device = Pushbots::Device.new(token, platform)
+# remove the device from pushbots
+# returns true if no errors occurred
+device.delete
+```
+
+#### Device information
+```ruby
+# token is required to get device information
+# platform is an optional parameter
+device = Pushbots::Device.new(token)
+# Get device information
+# Device token
+device.token
+# Device status
+device.platform
+# Device tags
+device.tags
+```
+
+## Notifications
 #### Single device notification
 ```ruby
 # Device token
@@ -64,7 +115,7 @@ push = PushBots::All.new(platforms, message, schedule, options = {})
 push.send # Delivers the notification
 ```
 
-##### You can read Pushbots API response using:
+##### Read pushbots response
 ```ruby
 # Your notification response
 push.response
