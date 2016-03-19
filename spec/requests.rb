@@ -33,25 +33,29 @@ module Requests
   private
 
   def common_headers
-    { 'Connection' => 'close',
+    {
+      'Connection' => 'close',
       'Content-Type' => 'application/json',
       'Host' => 'api.pushbots.com',
-      'User-Agent' => 'http.rb/1.0.2',
+      'User-Agent' => /./,
       'X-Pushbots-Appid' => 'Application ID',
-      'X-Pushbots-Secret' => 'Application Secret' }
+      'X-Pushbots-Secret' => 'Application Secret'
+    }
   end
 
   def single_device_content(token, msg, sound)
     { 'platform' => 1,
       'token' => token,
       'msg' => msg,
-      'sound' => sound }.to_json
+      'sound' => sound
+    }.to_json
   end
 
   def multiple_device_content(platforms, msg, schedule)
     { 'platform' => platforms,
       'msg' => msg,
-      'schedule' => schedule }.to_json
+      'schedule' => schedule
+    }.to_json
   end
 
   def pushbots_single_request(method, token, message, sound, response)
