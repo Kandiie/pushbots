@@ -9,7 +9,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Carlos Omana', 'Cesar Rodriguez']
   spec.email         = ['contact@kandiie.com']
   spec.summary       = 'Ruby Wrapper for PushBots Rest API.'
-  spec.description   = 'Ruby Wrapper for PushBots Rest API.'
+  spec.description   = 'Ruby Wrapper for PushBots Rest API. '\
+                       'Includes push notification methods for single and'\
+                       ' multiple devices simplifying notification management '\
+                       ' and pushbots api usage in your ruby projects.'
   spec.homepage      = 'https://github.com/Kandiie/pushbots'
   spec.license       = 'MIT'
 
