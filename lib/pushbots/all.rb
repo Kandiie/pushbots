@@ -17,8 +17,7 @@ module Pushbots
     end
 
     def send
-      request = Request.new(body, :all)
-      self.response = request.send
+      self.response = Request.send(:all, body)
       self.status =
         response.failed? ? STATUS[:failed] : STATUS[:delivered]
     end
