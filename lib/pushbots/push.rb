@@ -34,6 +34,7 @@ module Pushbots
     end
 
     def validates_platforms(platforms)
+      raise 'platform is not valid' if platforms.empty?
       platforms.each do |t|
         validates_platform(t)
       end
