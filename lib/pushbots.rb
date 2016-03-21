@@ -6,6 +6,7 @@ require 'pushbots/response'
 require 'pushbots/one'
 require 'pushbots/all'
 require 'pushbots/device'
+require 'pushbots/devices'
 
 # Pushbots module
 module Pushbots
