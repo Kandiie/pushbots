@@ -26,6 +26,12 @@ module Pushbots
       HTTP.headers(header_base).put(url, json: body)
     end
 
+    def self.register_batch(body)
+      url = 'https://api.pushbots.com/deviceToken/batch'
+      header = header_base.merge(header_push)
+      HTTP.headers(header).put(url, json: body)
+    end
+
     def self.header_base
       {
         :'X-PushBots-AppID' => Config.config.application_id,
