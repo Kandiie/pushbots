@@ -12,6 +12,7 @@ this gem on your favorite Ruby on Rails Projects.
 - [How to use](#how-to-use)
   - [Device management](#device-management)
     - [Register a device](#register-a-device)
+    - [Register multiple devices](#register-multiple-devices)
     - [Delete a device](#delete-a-device)
     - [Device information](#device-information)
 
@@ -59,8 +60,25 @@ device = Pushbots::Device.new(token, platform)
 device.register
 ```
 
+#### Register multiple devices
+```ruby
+tokens = ['8js62lsod8',
+          '71882jksu2']
+platform = :ios
+tags = ['vip', 'cool_people']
+# tokens and platform are required to add multiple devices
+# tags is an optional parameter
+devices = Pushbots::Devices.new(tokens, platform, tags)
+# register the devices to pushbots returns true/false
+# an attempt to register a device
+# that has been already registered returns false
+devices.register
+```
+
 #### Delete a device
 ```ruby
+token = 'k2iwp29271'
+platform = :ios
 # token and platform are required to delete a device
 device = Pushbots::Device.new(token, platform)
 # remove the device from pushbots
@@ -71,6 +89,7 @@ device.delete
 #### Device information
 ```ruby
 # token is required to get device information
+token = '182ksiwl29'
 # platform is an optional parameter
 device = Pushbots::Device.new(token)
 # Get device information
@@ -87,7 +106,7 @@ device.tags
 #### Single device notification
 ```ruby
 # Device token
-token = '900f9e35cc09ab9f3d99f0b244e23f160e0264f1aaf785549efeb6835a586710'
+token = '82ksh62j1a'
 # platform is :ios or :android
 # (Any other value will return a RuntimeError)
 platform = :ios
