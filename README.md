@@ -74,6 +74,7 @@ device.delete
 # platform is an optional parameter
 device = Pushbots::Device.new(token)
 # Get device information
+device.info
 # Device token
 device.token
 # Device status
