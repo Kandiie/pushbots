@@ -1,8 +1,8 @@
 # Pushbots
 
-Ruby Wrapper for PushBots Rest API made with love by Kandiie
+Ruby Wrapper for Pushbots Rest API made with love by Kandiie
 
-PushBots is a Light SDK for mobile push notifications and now you can use
+Pushbots is a Light SDK for mobile push notifications and now you can use
 this gem on your favorite Ruby on Rails Projects.
 
 ## Table of Contents
@@ -115,7 +115,7 @@ message = 'Hello World!!!'
 # Build up the notification
 # platform, message, token and sound (required parameters).
 # options (custom fields) (optional parameter)
-push = PushBots::One.new(platform, token, message, sound, options)
+push = Pushbots::One.new(platform, token, message, sound, options)
 push.send # Delivers the notification
 ```
 
@@ -131,7 +131,7 @@ schedule = DateTime.now
 # Build up the notification
 # platform, message, schedule (required parameters).
 # options (custom fields) (optional parameter)
-push = PushBots::All.new(platforms, message, schedule, options = {})
+push = Pushbots::All.new(platforms, message, schedule, options = {})
 push.send # Delivers the notification
 ```
 
