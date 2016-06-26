@@ -3,8 +3,8 @@ module Pushbots
   # Holds shared data between single and batch push notifications
   class Push
     attr_accessor :platform, :message, :status, :response, :type
-    PLATFORM_TYPE = { ios: 0, android: 1 }.freeze
-    PLATFORM_TYPE_R = [:ios, :android].freeze
+    PLATFORM_TYPE = { ios: 0, android: 1, chrome: 2 }.freeze
+    PLATFORM_TYPE_R = [:ios, :android, :chrome].freeze
 
     STATUS = { created: 'created', delivered: 'delivered',
                failed: 'failed' }.freeze

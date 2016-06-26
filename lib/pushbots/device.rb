@@ -2,8 +2,8 @@ module Pushbots
   # Device class
   class Device
     attr_accessor :token, :platform, :tags
-    PLATFORM_TYPE = { ios: 0, android: 1 }.freeze
-    PLATFORM_TYPE_R = [:ios, :android].freeze
+    PLATFORM_TYPE = { ios: 0, android: 1, chrome: 2 }.freeze
+    PLATFORM_TYPE_R = [:ios, :android, :chrome].freeze
 
     def initialize(token, platform = nil)
       self.token = token
