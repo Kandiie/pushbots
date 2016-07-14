@@ -11,7 +11,7 @@ module Pushbots
       self.sound = options[:sound]
       self.badge = options[:badge]
       self.except_tags = options[:except_tags]
-      self.alias = options[:alias]
+      self.device_alias = options[:alias]
       self.except_alias = options[:except_alias]
       self.payload = options[:payload]
     end
@@ -30,6 +30,8 @@ module Pushbots
       }
       data[:tags] if tags
       data[:badge] if badge
+      data[:alias] if device_alias
+      data[:except_tags] if except_tags
       data[:payload] if payload
       data
     end
